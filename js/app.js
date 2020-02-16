@@ -39,20 +39,16 @@ const newDiv = document.createElement('div')
 
 // build the nav upon DOM loaded 
 
-document.addEventListener("DOMContentLoaded", () => {
-    for (section of sections) {
-        const menuItem = document.createElement('li')
-        menuItem.textContent = section.dataset.nav
-        menuItem.classList.add("menu__link")
-        menu.appendChild(menuItem)
-    } ;
-  });
+
 
 
 // Add class 'active' to section when near top of viewport
 
 
 // Scroll to anchor ID using scrollTO event
+
+
+
 
 
 /**
@@ -63,7 +59,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Build menu 
 
+document.addEventListener("DOMContentLoaded", () => {
+    for (section of sections) {
+        const a = document.createElement("a")
+        const menuItem = document.createElement('li')
+        a.textContent = section.dataset.nav
+        a.setAttribute("href","#"+section.id)
+        menuItem.appendChild(a)
+        menuItem.classList.add("menu__link")
+        menu.appendChild(menuItem)
+    } ;
+  });
+
 // Scroll to section on link click
+
+
+
+function menuClickResponse (event) {
+    alert("Hello World" + event.target.id);
+    scrollTo(500, 0);
+}
+
+// menu.addEventListener ("click", menuClickResponse);
 
 // Set sections as active
 
