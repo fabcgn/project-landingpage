@@ -17,6 +17,22 @@
  * Define Global Variables
  * 
 */
+const sections = document.querySelectorAll ("section")
+const menu = document.querySelector ("#navbar__list")
+
+console.log(sections)
+
+var newDiv = document.createElement('div')
+
+for (section of sections) {
+    listItem = document.createTextNode(section.dataset.nav)
+    menu.appendChild(listItem)
+    console.log(section.dataset.nav)
+    console.log("<li>"+ section.dataset.nav + "</li>") 
+} 
+
+
+
 
 
 /**
@@ -34,6 +50,7 @@
 */
 
 // build the nav
+
 
 
 // Add class 'active' to section when near top of viewport
