@@ -30,6 +30,11 @@ const menuLinks = document.getElementsByClassName("menu__link")
  * 
 */
 
+inViewport = (e) => {
+    let yPos = e.getBoundingClientRect().y
+    let clientHeight = document.documentElement.clientHeight
+    return yPos > -200 && yPos < clientHeight - 300
+}
 
 
 /**
@@ -81,5 +86,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // Set sections as active
-
-
+window.addEventListener("scroll", () => {
+    sections.forEach(section => {
+        if (inViewport(section) == true) {
+        console.log(section.id + " is visible: " + inViewport(section))
+        }
+    });
+    
+});
