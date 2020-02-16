@@ -27,6 +27,7 @@ var newDiv = document.createElement('div')
 for (section of sections) {
     menuItem = document.createElement('li')
     menuItem.textContent = section.dataset.nav
+    menuItem.classList.add("menu__link")
     menu.appendChild(menuItem)
     console.log(section.dataset.nav)
     console.log("<li>"+ section.dataset.nav + "</li>") 
