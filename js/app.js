@@ -89,7 +89,10 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("scroll", () => {
     sections.forEach(section => {
         if (inViewport(section) == true) {
-        console.log(section.id + " is visible: " + inViewport(section))
+            console.log(section.id + " is visible: " + inViewport(section) + section.classList)
+            section.classList.add("focussed")
+        } else {
+            section.classList.remove("focussed")
         }
     });
     
