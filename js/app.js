@@ -54,9 +54,12 @@ buildMenu = () => { for (section of sections) {
 
 // Add class 'active' to section when near top of viewport
 
+toggleActive = (section) => {
+    section.classList.toggle("focussed")
+
+}
 
 // Scroll to anchor ID using scrollTO event
-
 
 
 
@@ -75,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Scroll to section on link click
 
-menu.addEventListener("click", function(){ alert("Hello World!"); });
 
 
 // Set sections as active
