@@ -21,6 +21,7 @@
 const sections = document.querySelectorAll ("section")
 const menu = document.querySelector ("#navbar__list")
 const newDiv = document.createElement('div')
+const menuLinks = document.getElementsByClassName("menu__link")
 
 
 /**
@@ -39,7 +40,7 @@ const newDiv = document.createElement('div')
 
 // build the nav
 
-function buildMenu () { for (section of sections) {
+buildMenu = () => { for (section of sections) {
     const a = document.createElement("a")
     const menuItem = document.createElement('li')
     a.textContent = section.dataset.nav
@@ -47,8 +48,9 @@ function buildMenu () { for (section of sections) {
     menuItem.appendChild(a)
     menuItem.classList.add("menu__link")
     menu.appendChild(menuItem)
-} ;
+    } ;
 }
+
 
 // Add class 'active' to section when near top of viewport
 
@@ -73,17 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Scroll to section on link click
 
-
-
-// document.querySelectorAll('.menu__link').forEach(anchor => {
-//     anchor.addEventListener('click', function (e) {
-//         e.preventDefault();
-
-//         document.querySelector(this.getAttribute('href')).scrollIntoView({
-//             behavior: 'smooth'
-//         });
-//     });
-// });
+menu.addEventListener("click", function(){ alert("Hello World!"); });
 
 
 // Set sections as active
