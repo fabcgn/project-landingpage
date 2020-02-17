@@ -61,12 +61,16 @@ buildMenu = () => { for (section of sections) {
 
 toggleActive = (section) => {
     section.classList.toggle("focussed")
-
 }
 
 // Scroll to anchor ID using scrollTO event
-
-
+softScroll = (y) => {
+    window.scrollTo({
+        top: y,
+        left: 0,
+        behavior: "smooth"
+    })
+}
 
 
 /**
@@ -89,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("scroll", () => {
     sections.forEach(section => {
         if (inViewport(section) == true) {
-            console.log(section.id + " is visible: " + inViewport(section) + section.classList)
             section.classList.add("focussed")
         } else {
             section.classList.remove("focussed")
