@@ -89,6 +89,10 @@ section {
     transition: ease 0.3s all;
 }
 
+.navbar__menu .current {
+    background-color: #ddd;
+}
+
 .navbar__menu .menu__link:active {
     background: #999;
     color: #fff;

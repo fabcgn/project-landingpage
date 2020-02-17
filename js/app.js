@@ -24,6 +24,7 @@ const newDiv = document.createElement('div')
 const menuLinks = document.getElementsByClassName("menu__link")
 
 
+
 /**
  * End Global Variables
  * Start Helper Functions
@@ -123,13 +124,17 @@ enableSoftScrollAll = () => {
 // Set sections as active
 
 enableSectionActivator = () => {
-window.addEventListener("scroll", () => {
-    sections.forEach(section => {
+    window.addEventListener("scroll", event => {
+
+    document.querySelectorAll("nav ul li a").forEach(link => {
+        let section = document.querySelector(link.hash);
         if (inViewport(section) == true) {
-            section.classList.add("focussed")
+        link.classList.add("current");
+        section.classList.add("focussed");
         } else {
-            section.classList.remove("focussed")
+        link.classList.remove("current");
+        section.classList.remove("focussed");
         }
-    });    
-});
+    });
+    });
 }
