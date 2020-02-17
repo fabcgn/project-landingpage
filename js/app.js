@@ -43,14 +43,13 @@ inViewport = (e) => {
  * 
 */
 
-// build the nav
+// build the nav from section's data-nav as title and anchor as href. Apply the menu__link styling.  
 
 buildMenu = () => { for (section of sections) {
     const a = document.createElement("a")
     const menuItem = document.createElement('li')
     a.textContent = section.dataset.nav
     a.setAttribute("href","#"+section.id)
-    menuItem.setAttribute("id","linkTo#"+section.id)
     menuItem.appendChild(a)
     a.classList.add("menu__link")
     menu.appendChild(menuItem)
@@ -73,14 +72,17 @@ softScroll = (y) => {
     })
 }
 
+// analalyze an element's y coordinate 
 elementLocation = (e) => {
     return window.scrollY + e.getBoundingClientRect().y
 }
 
+// Find a element by it's ID (other things would also work)
 anchorTarget = (anch) => {
     return document.querySelector(anch)
 }
 
+// provide a smooth scrolling to a element by it's ID
 scrollToElement = (e) => {
     softScroll(
         elementLocation(
@@ -94,7 +96,7 @@ scrollToElement = (e) => {
  * 
 */
 
-// Build menu 
+// Build menu upon DOM Load. Add SoftScrolling funcitionality
 
 document.addEventListener("DOMContentLoaded", () => {
     buildMenu();
