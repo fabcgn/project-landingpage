@@ -100,7 +100,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Scroll to section on link click
-
+document.getElementById("testlink").addEventListener("click", function(evt) { 
+    scrollToElement("section2");
+    event.preventDefault();
+});
 
 
 // Set sections as active
@@ -111,6 +114,5 @@ window.addEventListener("scroll", () => {
         } else {
             section.classList.remove("focussed")
         }
-    });
-    
+    });    
 });
