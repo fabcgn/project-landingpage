@@ -50,6 +50,7 @@ buildMenu = () => { for (section of sections) {
     const menuItem = document.createElement('li')
     a.textContent = section.dataset.nav
     a.setAttribute("href","#"+section.id)
+    menuItem.setAttribute("id","linkTo#"+section.id)
     menuItem.appendChild(a)
     menuItem.classList.add("menu__link")
     menu.appendChild(menuItem)
@@ -96,7 +97,23 @@ scrollToElement = (e) => {
 // Build menu 
 
 document.addEventListener("DOMContentLoaded", () => {
-    buildMenu()
+    buildMenu();
+
+    document.getElementById("linkTo#section1").addEventListener("click", function(evt) { 
+        scrollToElement("section1");
+        event.preventDefault();
+    });
+    
+    document.getElementById("linkTo#section2").addEventListener("click", function(evt) { 
+        scrollToElement("section2");
+        event.preventDefault();
+    });
+    
+    document.getElementById("linkTo#section3").addEventListener("click", function(evt) { 
+        scrollToElement("section3");
+        event.preventDefault();
+    });
+
 });
 
 // Scroll to section on link click
@@ -104,6 +121,11 @@ document.getElementById("testlink").addEventListener("click", function(evt) {
     scrollToElement("section2");
     event.preventDefault();
 });
+
+
+
+
+
 
 
 // Set sections as active
