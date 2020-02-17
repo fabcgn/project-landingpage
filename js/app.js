@@ -98,9 +98,10 @@ scrollToElement = (e) => {
 
 // Build menu upon DOM Load. Add SoftScrolling funcitionality
 
-document.addEventListener("DOMContentLoaded", () => {
+ document.addEventListener("DOMContentLoaded", () => {
     buildMenu();
     enableSoftScrollAll();
+    enableSectionActivator();
 });
 
 
@@ -120,6 +121,8 @@ enableSoftScrollAll = () => {
 
 
 // Set sections as active
+
+enableSectionActivator = () => {
 window.addEventListener("scroll", () => {
     sections.forEach(section => {
         if (inViewport(section) == true) {
@@ -129,3 +132,4 @@ window.addEventListener("scroll", () => {
         }
     });    
 });
+}
