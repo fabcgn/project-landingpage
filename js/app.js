@@ -72,6 +72,20 @@ softScroll = (y) => {
     })
 }
 
+elementLocation = (e) => {
+    return window.scrollY + e.getBoundingClientRect().y
+}
+
+anchorTarget = (anch) => {
+    return document.getElementById(anch)
+}
+
+scrollToElement = (e) => {
+    softScroll(
+        elementLocation(
+            anchorTarget(e)))
+}
+
 
 /**
  * End Main Functions
