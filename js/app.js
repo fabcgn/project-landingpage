@@ -52,7 +52,7 @@ buildMenu = () => { for (section of sections) {
     a.setAttribute("href","#"+section.id)
     menuItem.setAttribute("id","linkTo#"+section.id)
     menuItem.appendChild(a)
-    menuItem.classList.add("menu__link")
+    a.classList.add("menu__link")
     menu.appendChild(menuItem)
     } ;
 }
@@ -78,7 +78,7 @@ elementLocation = (e) => {
 }
 
 anchorTarget = (anch) => {
-    return document.getElementById(anch)
+    return document.querySelector(anch)
 }
 
 scrollToElement = (e) => {
@@ -106,22 +106,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 enableSoftScroll = () => {
-    document.querySelectorAll(".menu__link").forEach(
-        (elem) => {
-            console.log(elem);
+    document.querySelectorAll(".menu__link").forEach( (elem) => {
             elem.addEventListener("click", function(event) { 
-                scrollToElement("section2");
+                scrollToElement(elem.getAttribute("href"));
                 event.preventDefault();
             });
         } 
     )
 }
-
-
-
-
-
-
 
 
 
