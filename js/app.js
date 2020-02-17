@@ -98,21 +98,21 @@ scrollToElement = (e) => {
 
 document.addEventListener("DOMContentLoaded", () => {
     buildMenu();
-    enableSoftScroll();
+    enableSoftScrollAll();
 });
 
 
 // Scroll to section on link click
 
+enableSoftScroll = (elem) => {
+    elem.addEventListener("click", function(event) { 
+        scrollToElement(elem.getAttribute("href"));
+        event.preventDefault();
+    });
+}
 
-enableSoftScroll = () => {
-    document.querySelectorAll(".menu__link").forEach( (elem) => {
-            elem.addEventListener("click", function(event) { 
-                scrollToElement(elem.getAttribute("href"));
-                event.preventDefault();
-            });
-        } 
-    )
+enableSoftScrollAll = () => {
+    document.querySelectorAll(".menu__link").forEach( (elem) => {enableSoftScroll(elem)})
 }
 
 
