@@ -98,29 +98,26 @@ scrollToElement = (e) => {
 
 document.addEventListener("DOMContentLoaded", () => {
     buildMenu();
-
-    document.getElementById("linkTo#section1").addEventListener("click", function(evt) { 
-        scrollToElement("section1");
-        event.preventDefault();
-    });
-    
-    document.getElementById("linkTo#section2").addEventListener("click", function(evt) { 
-        scrollToElement("section2");
-        event.preventDefault();
-    });
-    
-    document.getElementById("linkTo#section3").addEventListener("click", function(evt) { 
-        scrollToElement("section3");
-        event.preventDefault();
-    });
-
+    enableSoftScroll();
 });
+
 
 // Scroll to section on link click
-document.getElementById("testlink").addEventListener("click", function(evt) { 
-    scrollToElement("section2");
-    event.preventDefault();
-});
+
+
+enableSoftScroll = () => {
+    document.querySelectorAll(".menu__link").forEach(
+        (elem) => {
+            console.log(elem);
+            elem.addEventListener("click", function(event) { 
+                scrollToElement("section2");
+                event.preventDefault();
+            });
+        } 
+    )
+}
+
+
 
 
 
